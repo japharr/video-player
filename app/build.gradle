@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.japharr.videoplayer"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            debuggable true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    sdk_version = '27.1.1'
+    retrofit_version = '2.3.0'
+    google_play_services_version = '12.0.1'
+    gms_play_services_version = '12.0.1'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:${sdk_version}"
+    implementation "com.android.support:cardview-v7:${sdk_version}"
+    implementation "com.android.support:design:${sdk_version}"
+    implementation "com.android.support:recyclerview-v7:${sdk_version}"
+    implementation "com.android.support:support-annotations:${sdk_version}"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+    implementation ('com.github.bumptech.glide:okhttp3-integration:4.5.0'){
+        exclude group: 'glide-parent'
+    }
+    kapt 'com.github.bumptech.glide:compiler:4.5.0'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.0'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-scalars:${retrofit_version}"
+    //implementation "com.squareup.okhttp:okhttp:${retrofit_version}"
+
+    // RxJava & RxAndroid
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    // ExoPlayer2
+    implementation 'com.google.android.exoplayer:exoplayer:2.6.0'
+
+    // Room ORM
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    kapt 'android.arch.persistence.room:compiler:1.1.1'
+    implementation 'android.arch.persistence.room:rxjava2:1.1.1'
+
+    // Dagger2
+    implementation 'com.google.dagger:dagger:2.16'
+    kapt 'com.google.dagger:dagger-compiler:2.16'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
