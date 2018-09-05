@@ -1,7 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.japharr.videoplayer.MainActivity">
+    tools:context="com.japharr.videoplayer.ui.main.activity.MainActivity">
+
+    <item
+        android:id="@+id/action_item_view"
+        android:icon="@drawable/baseline_list_white_36"
+        android:title="@string/list"
+        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

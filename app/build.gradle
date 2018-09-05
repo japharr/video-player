@@ -86,6 +86,8 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.16'
     compileOnly 'javax.annotation:jsr250-api:1.0'
 
+    // EasyPermissions
+    implementation 'pub.devrel:easypermissions:1.1.2'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
