@@ -118,14 +118,14 @@ class MainActivity : RxBaseActivity(), MainView {
                 if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
                     // If collapsed, then do this
                     //imageViewSmallLogo.setVisibility(View.VISIBLE);
-                    layout_title.visibility = View.VISIBLE
-                    details.setVisibility(View.GONE);
+                    //layout_title.visibility = View.VISIBLE
+                    //details.setVisibility(View.GONE);
                     //hideElements()
                 } else if (verticalOffset == 0) {
                     // If expanded, then do this
                     //imageViewBigLogo.setVisibility(View.VISIBLE);
-                    layout_title.visibility = View.GONE
-                    details.setVisibility(View.VISIBLE);
+                    //layout_title.visibility = View.GONE
+                    //details.setVisibility(View.VISIBLE);
                     //showElements()
                 }
             }
